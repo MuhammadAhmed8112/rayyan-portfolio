@@ -1,0 +1,1067 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Muhammad Rayyan — AI Full Stack Automation Engineer</title>
+<meta name="description" content="AI Full Stack Automation Engineer building AI agents, workflow automation, voice agents, CRM systems, and business automation pipelines." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; }
+  * { margin: 0; padding: 0; }
+
+  :root {
+    --bg: #020617;
+    --bg-soft: #07111f;
+    --surface: rgba(15, 23, 42, 0.74);
+    --surface-strong: #0f172a;
+    --card: rgba(15, 23, 42, 0.82);
+    --border: rgba(148, 163, 184, 0.16);
+    --border-strong: rgba(56, 189, 248, 0.34);
+    --text: #f8fafc;
+    --muted: #94a3b8;
+    --muted-2: #64748b;
+    --accent: #38bdf8;
+    --accent-2: #22c55e;
+    --accent-3: #818cf8;
+    --danger: #fb7185;
+    --shadow: 0 24px 80px rgba(2, 6, 23, 0.44);
+    --max: 1160px;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    min-height: 100vh;
+    font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background:
+      radial-gradient(circle at top left, rgba(56, 189, 248, 0.16), transparent 32rem),
+      radial-gradient(circle at top right, rgba(129, 140, 248, 0.12), transparent 34rem),
+      linear-gradient(180deg, #020617 0%, #06111f 42%, #020617 100%);
+    color: var(--text);
+    overflow-x: hidden;
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    background-image:
+      linear-gradient(rgba(148, 163, 184, 0.035) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(148, 163, 184, 0.035) 1px, transparent 1px);
+    background-size: 72px 72px;
+    mask-image: linear-gradient(to bottom, black, transparent 72%);
+    z-index: -2;
+  }
+
+  a { color: inherit; }
+
+  .container {
+    width: min(var(--max), calc(100% - 40px));
+    margin: 0 auto;
+  }
+
+  .topbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 50;
+    border-bottom: 1px solid transparent;
+    transition: 0.25s ease;
+  }
+
+  .topbar.scrolled {
+    background: rgba(2, 6, 23, 0.78);
+    backdrop-filter: blur(18px);
+    border-color: var(--border);
+  }
+
+  nav {
+    height: 76px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+  }
+
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+    font-weight: 800;
+    letter-spacing: -0.04em;
+  }
+
+  .brand-mark {
+    width: 38px;
+    height: 38px;
+    border-radius: 12px;
+    display: grid;
+    place-items: center;
+    background: linear-gradient(135deg, rgba(56, 189, 248, 0.24), rgba(129, 140, 248, 0.16));
+    border: 1px solid rgba(56, 189, 248, 0.22);
+    color: var(--accent);
+    box-shadow: 0 0 32px rgba(56, 189, 248, 0.16);
+  }
+
+  .brand small {
+    display: block;
+    font-size: 12px;
+    color: var(--muted);
+    font-weight: 500;
+    letter-spacing: 0;
+    margin-top: 2px;
+  }
+
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    font-size: 14px;
+    color: var(--muted);
+    font-weight: 600;
+  }
+
+  .nav-links a {
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  .nav-links a:hover { color: var(--text); }
+
+  .nav-cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 16px;
+    border-radius: 999px;
+    background: #f8fafc;
+    color: #020617;
+    font-weight: 800;
+    text-decoration: none;
+    font-size: 13px;
+    box-shadow: 0 12px 34px rgba(248, 250, 252, 0.12);
+  }
+
+  .hero {
+    padding: 152px 0 88px;
+    position: relative;
+  }
+
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1.14fr 0.86fr;
+    align-items: center;
+    gap: 52px;
+  }
+
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 12px;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    color: #cbd5e1;
+    background: rgba(15, 23, 42, 0.58);
+    font-size: 13px;
+    font-weight: 700;
+    margin-bottom: 22px;
+  }
+
+  .status-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--accent-2);
+    box-shadow: 0 0 0 6px rgba(34, 197, 94, 0.12);
+  }
+
+  h1 {
+    max-width: 800px;
+    font-size: clamp(26px, 2.8vw, 42px);
+    line-height: 1.15;
+    letter-spacing: -0.03em;
+    font-weight: 800;
+  }
+
+  .gradient-text {
+    background: linear-gradient(90deg, #f8fafc 0%, #38bdf8 46%, #818cf8 100%);
+    -webkit-background-clip: text;
+    color: transparent;
+  }
+
+  .hero-subtitle {
+    max-width: 690px;
+    margin-top: 24px;
+    color: #cbd5e1;
+    font-size: 15px;
+    line-height: 1.75;
+  }
+
+  .hero-subtitle strong { color: var(--text); }
+
+  .hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin-top: 34px;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    min-height: 48px;
+    padding: 0 20px;
+    border-radius: 999px;
+    font-size: 14px;
+    font-weight: 800;
+    text-decoration: none;
+    transition: 0.2s ease;
+    border: 1px solid transparent;
+  }
+
+  .btn-primary {
+    background: linear-gradient(135deg, #38bdf8, #818cf8);
+    color: #020617;
+    box-shadow: 0 20px 60px rgba(56, 189, 248, 0.2);
+  }
+
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 24px 70px rgba(56, 189, 248, 0.28); }
+
+  .btn-secondary {
+    background: rgba(15, 23, 42, 0.66);
+    border-color: var(--border);
+    color: #e2e8f0;
+  }
+
+  .btn-secondary:hover { border-color: var(--border-strong); transform: translateY(-2px); }
+
+  .trust-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 30px;
+  }
+
+  .trust-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 12px;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    color: var(--muted);
+    background: rgba(15, 23, 42, 0.5);
+    font-size: 13px;
+    font-weight: 700;
+  }
+
+  .hero-panel {
+    background: linear-gradient(180deg, rgba(15, 23, 42, 0.92), rgba(15, 23, 42, 0.66));
+    border: 1px solid var(--border);
+    border-radius: 28px;
+    box-shadow: var(--shadow);
+    overflow: hidden;
+    position: relative;
+  }
+
+  .panel-top {
+    padding: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .window-dots { display: flex; gap: 8px; }
+  .window-dots span { width: 10px; height: 10px; border-radius: 50%; background: #334155; }
+  .window-dots span:nth-child(1) { background: #fb7185; }
+  .window-dots span:nth-child(2) { background: #facc15; }
+  .window-dots span:nth-child(3) { background: #22c55e; }
+
+  .panel-top code {
+    color: var(--muted);
+    font-size: 12px;
+    font-weight: 700;
+  }
+
+  .panel-body { padding: 24px; }
+
+  .metric-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+    margin-bottom: 18px;
+  }
+
+  .metric {
+    padding: 18px;
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    background: rgba(2, 6, 23, 0.32);
+  }
+
+  .metric strong {
+    display: block;
+    font-size: 28px;
+    letter-spacing: -0.04em;
+    margin-bottom: 4px;
+  }
+
+  .metric span {
+    display: block;
+    color: var(--muted);
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 1.45;
+  }
+
+  .automation-card {
+    padding: 18px;
+    border: 1px solid rgba(56, 189, 248, 0.18);
+    border-radius: 20px;
+    background: linear-gradient(135deg, rgba(56, 189, 248, 0.1), rgba(129, 140, 248, 0.06));
+  }
+
+  .automation-card h3 {
+    font-size: 15px;
+    margin-bottom: 14px;
+  }
+
+  .flow {
+    display: grid;
+    gap: 10px;
+  }
+
+  .flow-step {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 12px 14px;
+    border: 1px solid rgba(148, 163, 184, 0.12);
+    border-radius: 14px;
+    background: rgba(2, 6, 23, 0.26);
+    color: #cbd5e1;
+    font-size: 13px;
+    font-weight: 700;
+  }
+
+  .flow-step em {
+    color: var(--accent-2);
+    font-style: normal;
+    font-size: 12px;
+  }
+
+  section { padding: 84px 0; }
+
+  .section-head {
+    display: block;
+    margin-bottom: 34px;
+  }
+
+  .section-copy {
+    margin-top: 12px;
+  }
+
+  .label {
+    color: var(--accent);
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+
+  h2 {
+    font-size: clamp(22px, 2.4vw, 34px);
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    max-width: 760px;
+  }
+
+  .section-copy {
+    color: var(--muted);
+    font-size: 16px;
+    line-height: 1.7;
+    max-width: 420px;
+  }
+
+  .logo-strip {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .tool {
+    padding: 12px 15px;
+    border-radius: 14px;
+    border: 1px solid var(--border);
+    background: rgba(15, 23, 42, 0.54);
+    color: #cbd5e1;
+    font-size: 14px;
+    font-weight: 800;
+  }
+
+  .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+  .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
+
+  .card {
+    border: 1px solid var(--border);
+    background: var(--card);
+    border-radius: 24px;
+    padding: 24px;
+    box-shadow: 0 20px 56px rgba(2, 6, 23, 0.24);
+    transition: 0.22s ease;
+  }
+
+  .card:hover { transform: translateY(-4px); border-color: rgba(56, 189, 248, 0.26); }
+
+  .service-card h3, .project-card h3, .process-card h3 {
+    font-size: 20px;
+    letter-spacing: -0.03em;
+    margin: 14px 0 10px;
+  }
+
+  .icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 15px;
+    display: grid;
+    place-items: center;
+    background: rgba(56, 189, 248, 0.1);
+    border: 1px solid rgba(56, 189, 248, 0.18);
+    color: var(--accent);
+    font-size: 20px;
+  }
+
+  .card p {
+    color: var(--muted);
+    font-size: 15px;
+    line-height: 1.7;
+  }
+
+  .card ul {
+    list-style: none;
+    display: grid;
+    gap: 10px;
+    margin-top: 18px;
+  }
+
+  .card li {
+    color: #cbd5e1;
+    font-size: 14px;
+    line-height: 1.5;
+    display: flex;
+    gap: 9px;
+    align-items: flex-start;
+  }
+
+  .card li::before {
+    content: '✓';
+    color: var(--accent-2);
+    font-weight: 900;
+  }
+
+  .project-card {
+    padding: 0;
+    overflow: hidden;
+  }
+
+  .project-main {
+    display: grid;
+    grid-template-columns: 1.05fr 0.95fr;
+    gap: 0;
+  }
+
+  .project-content { padding: 30px; }
+
+  .project-side {
+    padding: 30px;
+    background: rgba(2, 6, 23, 0.24);
+    border-left: 1px solid var(--border);
+  }
+
+  .tag {
+    display: inline-flex;
+    align-items: center;
+    padding: 7px 10px;
+    border-radius: 999px;
+    background: rgba(56, 189, 248, 0.1);
+    color: #bae6fd;
+    border: 1px solid rgba(56, 189, 248, 0.18);
+    font-size: 12px;
+    font-weight: 800;
+    margin-bottom: 16px;
+  }
+
+  .tag.green { background: rgba(34, 197, 94, 0.1); border-color: rgba(34, 197, 94, 0.2); color: #bbf7d0; }
+  .tag.purple { background: rgba(129, 140, 248, 0.12); border-color: rgba(129, 140, 248, 0.22); color: #c7d2fe; }
+
+  .project-title-row {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 18px;
+    margin-bottom: 12px;
+  }
+
+  .project-title-row h3 {
+    font-size: clamp(24px, 3vw, 36px);
+    letter-spacing: -0.055em;
+    line-height: 1.08;
+  }
+
+  .project-content p {
+    color: #cbd5e1;
+    line-height: 1.75;
+    font-size: 16px;
+    margin-bottom: 22px;
+  }
+
+  .mini-kpis {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin: 22px 0;
+  }
+
+  .mini-kpi {
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 14px;
+    background: rgba(2, 6, 23, 0.24);
+  }
+
+  .mini-kpi strong {
+    display: block;
+    font-size: 22px;
+    letter-spacing: -0.04em;
+    margin-bottom: 4px;
+  }
+
+  .mini-kpi span {
+    color: var(--muted);
+    font-size: 11px;
+    line-height: 1.4;
+    font-weight: 700;
+  }
+
+  .tech-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .tech-list span {
+    color: #cbd5e1;
+    border: 1px solid var(--border);
+    background: rgba(2, 6, 23, 0.3);
+    padding: 8px 10px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 800;
+  }
+
+  .side-block + .side-block { margin-top: 22px; }
+
+  .side-block h4 {
+    color: var(--text);
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 12px;
+  }
+
+  .side-block p,
+  .side-block li {
+    color: var(--muted);
+    font-size: 14px;
+    line-height: 1.65;
+  }
+
+  .side-block ul { list-style: none; display: grid; gap: 8px; }
+
+  .side-block li {
+    display: flex;
+    gap: 8px;
+    align-items: flex-start;
+  }
+
+  .side-block li::before { content: '→'; color: var(--accent); }
+
+  .project-compact {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 350px;
+    padding: 32px !important;
+  }
+
+  .project-compact .btn { margin-top: 24px; width: fit-content; }
+
+  .process-card {
+    position: relative;
+  }
+
+  .process-num {
+    color: rgba(56, 189, 248, 0.34);
+    font-weight: 900;
+    font-size: 42px;
+    letter-spacing: -0.08em;
+  }
+
+  .contact-box {
+    display: grid;
+    grid-template-columns: 1fr 0.78fr;
+    gap: 28px;
+    align-items: stretch;
+    border: 1px solid var(--border);
+    border-radius: 32px;
+    background: linear-gradient(135deg, rgba(56, 189, 248, 0.1), rgba(15, 23, 42, 0.74));
+    box-shadow: var(--shadow);
+    padding: 34px;
+  }
+
+  .contact-box h2 { max-width: 660px; }
+
+  .contact-box p {
+    color: #cbd5e1;
+    font-size: 17px;
+    line-height: 1.75;
+    max-width: 680px;
+    margin-top: 16px;
+  }
+
+  .contact-methods {
+    display: grid;
+    gap: 12px;
+  }
+
+  .contact-method {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 16px;
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    background: rgba(2, 6, 23, 0.28);
+    text-decoration: none;
+  }
+
+  .contact-method:hover { border-color: var(--border-strong); }
+
+  .contact-method span:first-child {
+    width: 38px;
+    height: 38px;
+    display: grid;
+    place-items: center;
+    border-radius: 13px;
+    background: rgba(255,255,255,0.06);
+  }
+
+  .contact-method strong { display: block; font-size: 14px; margin-bottom: 3px; }
+  .contact-method small { color: var(--muted); font-size: 13px; }
+
+  footer {
+    padding: 30px 0 44px;
+    color: var(--muted-2);
+    font-size: 14px;
+  }
+
+  .footer-inner {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+    border-top: 1px solid var(--border);
+    padding-top: 24px;
+  }
+
+  .wa-float {
+    position: fixed;
+    right: 22px;
+    bottom: 22px;
+    z-index: 40;
+    width: 54px;
+    height: 54px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    text-decoration: none;
+    background: #22c55e;
+    color: white;
+    font-size: 24px;
+    box-shadow: 0 18px 54px rgba(34, 197, 94, 0.3);
+  }
+
+  .reveal { opacity: 0; transform: translateY(22px); transition: 0.65s ease; }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+
+  @media (max-width: 920px) {
+    .nav-links { display: none; }
+    .hero-grid, .project-main, .contact-box { grid-template-columns: 1fr; }
+    .project-side { border-left: 0; border-top: 1px solid var(--border); }
+    .grid-3, .grid-2 { grid-template-columns: 1fr; }
+    .section-head { display: block; }
+    .section-copy { margin-top: 14px; }
+  }
+
+  @media (max-width: 620px) {
+    .container { width: min(100% - 28px, var(--max)); }
+    .hero { padding-top: 120px; }
+    section { padding: 64px 0; }
+    .hero-subtitle { font-size: 16px; }
+    .metric-grid, .mini-kpis { grid-template-columns: 1fr; }
+    .contact-box { padding: 22px; border-radius: 24px; }
+    .project-content, .project-side { padding: 22px; }
+    h1 { font-size: 44px; }
+  }
+</style>
+</head>
+<body>
+<header class="topbar" id="topbar">
+  <div class="container">
+    <nav>
+      <a href="#top" class="brand" aria-label="Muhammad Rayyan portfolio">
+        <span class="brand-mark">MR</span>
+        <span>Muhammad Rayyan<small>AI Automation Engineer</small></span>
+      </a>
+      <div class="nav-links">
+        <a href="#services">Services</a>
+        <a href="#projects">Projects</a>
+        <a href="#stack">Stack</a>
+        <a href="#process">Process</a>
+        <a href="#contact" class="nav-cta">Work with me</a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="container hero-grid">
+      <div>
+        <div class="eyebrow"><span class="status-dot"></span> Available for AI automation projects</div>
+        <h1>AI systems that save time, handle leads, and run business operations.</h1>
+        <p class="hero-subtitle">
+          I build <strong>AI agents, automation workflows, voice assistants, CRM pipelines, and full-stack dashboards</strong> for businesses that want fewer manual tasks and faster execution.
+        </p>
+        <div class="hero-actions">
+          <a href="#projects" class="btn btn-primary">View project case studies →</a>
+          <a href="mailto:agharayyan@gmail.com" class="btn btn-secondary">Book a free automation audit</a>
+        </div>
+        <div class="trust-row">
+          <span class="trust-pill">⚡ n8n / Make / Zapier</span>
+          <span class="trust-pill">🤖 AI agents + RAG</span>
+          <span class="trust-pill">📞 Voice + WhatsApp automation</span>
+        </div>
+      </div>
+
+      <aside class="hero-panel reveal" aria-label="Automation dashboard preview">
+        <div class="panel-top">
+          <div class="window-dots"><span></span><span></span><span></span></div>
+          <code>automation_system.live</code>
+        </div>
+        <div class="panel-body">
+          <div class="metric-grid">
+            <div class="metric"><strong>0s</strong><span>Instant lead response workflows</span></div>
+            <div class="metric"><strong>24/7</strong><span>AI agents that work after hours</span></div>
+            <div class="metric"><strong>4</strong><span>AI provider fallback chain</span></div>
+            <div class="metric"><strong>∞</strong><span>Actions handled per conversation</span></div>
+          </div>
+          <div class="automation-card">
+            <h3>Example workflow</h3>
+            <div class="flow">
+              <div class="flow-step"><span>Lead enters WhatsApp</span><em>trigger</em></div>
+              <div class="flow-step"><span>AI qualifies requirements</span><em>reason</em></div>
+              <div class="flow-step"><span>CRM updates automatically</span><em>sync</em></div>
+              <div class="flow-step"><span>Team receives follow-up task</span><em>done</em></div>
+            </div>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <section id="services">
+    <div class="container">
+      <div class="section-head reveal">
+        <div>
+          <div class="label">What I can automate for you</div>
+          <h2>Business systems built to remove repetitive work.</h2>
+        </div>
+        <p class="section-copy">Instead of just making “cool AI demos,” I focus on systems that reduce manual work, improve response time, and keep operations organized.</p>
+      </div>
+      <div class="grid-3">
+        <article class="card service-card reveal">
+          <div class="icon">⚡</div>
+          <h3>Workflow Automation</h3>
+          <p>Automated workflows that connect your tools and move data without manual copy-paste.</p>
+          <ul>
+            <li>n8n, Make.com, Zapier workflows</li>
+            <li>Error handling and retry logic</li>
+            <li>Google Sheets, Notion, CRMs, email, APIs</li>
+          </ul>
+        </article>
+        <article class="card service-card reveal">
+          <div class="icon">🤖</div>
+          <h3>AI Agents & Chatbots</h3>
+          <p>AI assistants that understand requests, decide actions, and update business systems.</p>
+          <ul>
+            <li>RAG and business knowledge bases</li>
+            <li>Lead qualification and scoring</li>
+            <li>Tool-calling and action execution</li>
+          </ul>
+        </article>
+        <article class="card service-card reveal">
+          <div class="icon">📞</div>
+          <h3>Voice & Appointment Systems</h3>
+          <p>Voice agents and booking flows that qualify callers and schedule appointments automatically.</p>
+          <ul>
+            <li>Google Calendar availability checks</li>
+            <li>Confirmation emails and reminders</li>
+            <li>WhatsApp and email follow-ups</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="container">
+      <div class="section-head reveal">
+        <div>
+          <div class="label">Selected work</div>
+          <h2>Real AI automation projects, shown as business case studies.</h2>
+        </div>
+        <p class="section-copy">Each project is presented with the problem it solves, the system architecture, and the business value.</p>
+      </div>
+
+      <article class="card project-card reveal">
+        <div class="project-main">
+          <div class="project-content">
+            <span class="tag purple">Flagship Build — Live</span>
+            <div class="project-title-row">
+              <h3>Jennifer — Autonomous AI Business Employee</h3>
+              <a href="https://jennifer-ai-app.vercel.app" target="_blank" class="btn btn-secondary">Try live →</a>
+            </div>
+            <p>Jennifer is an AI business assistant for real estate agencies. It manages leads, scores intent, tracks follow-ups, searches live market data, saves property inventory, and gives daily business briefings through a natural chat interface.</p>
+            <div class="mini-kpis">
+              <div class="mini-kpi"><strong>4</strong><span>AI provider fallback chain</span></div>
+              <div class="mini-kpi"><strong>0</strong><span>Manual CRM updates needed</span></div>
+              <div class="mini-kpi"><strong>24/7</strong><span>Business assistant availability</span></div>
+            </div>
+            <div class="tech-list">
+              <span>Next.js 14</span><span>Supabase + RLS</span><span>Groq</span><span>OpenRouter</span><span>Gemini</span><span>Tavily</span><span>RAG</span><span>Vercel</span>
+            </div>
+          </div>
+          <div class="project-side">
+            <div class="side-block">
+              <h4>Business problem</h4>
+              <p>Real estate teams lose leads when follow-ups, property matching, and CRM updates are handled manually.</p>
+            </div>
+            <div class="side-block">
+              <h4>Solution</h4>
+              <ul>
+                <li>AI decides what action to take from conversation</li>
+                <li>RAG and database context for better answers</li>
+                <li>CRM, property inventory, and task tracking connected</li>
+              </ul>
+            </div>
+            <div class="side-block">
+              <h4>Result</h4>
+              <p>A working AI employee prototype that can be demonstrated live to agencies and clients.</p>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <div class="grid-2" style="margin-top:18px;">
+        <article class="card project-card project-compact reveal">
+          <div>
+            <span class="tag">Live Demo</span>
+            <h3>Agentic Sales Research Chatbot</h3>
+            <p>Researches a company live, asks qualifying questions, scores the lead, and generates a personalized outreach email.</p>
+            <ul>
+              <li>Company input → web research → lead score → email</li>
+              <li>Uses search, knowledge base, and direct answers depending on context</li>
+            </ul>
+            <div class="tech-list" style="margin-top:18px;"><span>Streamlit</span><span>Agentic AI</span><span>Web Search</span><span>RAG</span></div>
+          </div>
+          <a href="https://sales-research-chatbot-nnyygpzsuazgrcxbhw2vhy.streamlit.app" target="_blank" class="btn btn-secondary">Try demo →</a>
+        </article>
+
+        <article class="card project-card project-compact reveal">
+          <div>
+            <span class="tag green">Voice AI Demo</span>
+            <h3>AI Appointment Booking Voice Agent</h3>
+            <p>A caller explains appointment needs, the agent checks Google Calendar, confirms a slot, books it, and sends a confirmation email.</p>
+            <ul>
+              <li>Inbound call → AI qualification → calendar check → booking</li>
+              <li>Designed for clinics, agencies, consultants, and service businesses</li>
+            </ul>
+            <div class="tech-list" style="margin-top:18px;"><span>LiveKit</span><span>Voice AI</span><span>Google Calendar API</span><span>Email</span></div>
+          </div>
+          <a href="https://multi-cloud-hypervisor-cmcnjq.sandbox.livekit.io" target="_blank" class="btn btn-secondary">Try demo →</a>
+        </article>
+      </div>
+
+      <div class="grid-2" style="margin-top:18px;">
+        <article class="card project-card project-compact reveal">
+          <div>
+            <span class="tag">Automation Build</span>
+            <h3>WhatsApp Lead Management System</h3>
+            <p>Captures leads from Instagram ads, responds instantly on WhatsApp, collects requirements, and routes leads to the right team member.</p>
+            <ul>
+              <li>Round-robin assignment and availability tracking</li>
+              <li>Associate email alerts and follow-up logging</li>
+            </ul>
+            <div class="tech-list" style="margin-top:18px;"><span>n8n</span><span>WhatsApp Business API</span><span>Claude AI</span><span>Google Sheets</span></div>
+          </div>
+        </article>
+
+        <article class="card project-card project-compact reveal">
+          <div>
+            <span class="tag purple">Sales Automation</span>
+            <h3>Autonomous AI SDR Pipeline</h3>
+            <p>Enriches new leads, scores them with AI, researches recent company news, writes outreach, and creates a different-angle follow-up after 48 hours.</p>
+            <ul>
+              <li>Hunter.io enrichment and Tavily research</li>
+              <li>Google Sheet dashboard for tracking</li>
+            </ul>
+            <div class="tech-list" style="margin-top:18px;"><span>n8n</span><span>Hunter.io</span><span>Tavily</span><span>Claude AI</span><span>Google Sheets</span></div>
+          </div>
+        </article>
+      </div>
+
+      <article class="card project-card reveal" style="margin-top:18px;">
+        <div class="project-main">
+          <div class="project-content">
+            <span class="tag green">Content Automation</span>
+            <h3>YouTube Shorts + Multi-Platform Content Engine</h3>
+            <p>A content automation system that turns one idea, video, or podcast into scripts, voiceovers, short videos, LinkedIn posts, Twitter threads, newsletters, and scheduled uploads.</p>
+            <div class="tech-list"><span>n8n</span><span>Claude API</span><span>ElevenLabs</span><span>Kling / Runway</span><span>YouTube API</span><span>Buffer</span><span>Whisper</span></div>
+          </div>
+          <div class="project-side">
+            <div class="side-block">
+              <h4>Why it matters</h4>
+              <p>Content teams can create more output from one source asset instead of manually rewriting and resizing content for every platform.</p>
+            </div>
+            <div class="side-block">
+              <h4>Workflow</h4>
+              <ul>
+                <li>Raw idea or long-form video</li>
+                <li>AI script and human review gate</li>
+                <li>Voiceover, video generation, scheduling, and upload</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section id="stack">
+    <div class="container">
+      <div class="section-head reveal">
+        <div>
+          <div class="label">Tools & stack</div>
+          <h2>The stack I use to build reliable automation systems.</h2>
+        </div>
+        <p class="section-copy">I choose tools based on the client’s workflow, budget, integrations, and how much control the system needs.</p>
+      </div>
+      <div class="logo-strip reveal">
+        <span class="tool">n8n</span>
+        <span class="tool">Make.com</span>
+        <span class="tool">Zapier</span>
+        <span class="tool">Next.js</span>
+        <span class="tool">Supabase</span>
+        <span class="tool">OpenAI / Claude / Gemini</span>
+        <span class="tool">Groq / OpenRouter</span>
+        <span class="tool">REST APIs</span>
+        <span class="tool">WhatsApp API</span>
+        <span class="tool">Google Calendar</span>
+        <span class="tool">Google Sheets</span>
+        <span class="tool">ElevenLabs</span>
+        <span class="tool">LiveKit</span>
+        <span class="tool">Tavily</span>
+        <span class="tool">Vercel</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="process">
+    <div class="container">
+      <div class="section-head reveal">
+        <div>
+          <div class="label">How I work</div>
+          <h2>Simple process. Clear handoff. No black box.</h2>
+        </div>
+        <p class="section-copy">The goal is not only to build the system, but to make sure you understand how it works and can own it confidently.</p>
+      </div>
+      <div class="grid-4 grid-3">
+        <article class="card process-card reveal"><div class="process-num">01</div><h3>Audit</h3><p>I map your current process and identify where automation can save the most time.</p></article>
+        <article class="card process-card reveal"><div class="process-num">02</div><h3>Blueprint</h3><p>I design the workflow, tools, data flow, edge cases, and failure handling before building.</p></article>
+        <article class="card process-card reveal"><div class="process-num">03</div><h3>Build</h3><p>I build and test the automation using real scenarios, not just perfect demo data.</p></article>
+        <article class="card process-card reveal"><div class="process-num">04</div><h3>Handoff</h3><p>You get documentation, workflow access, and a walkthrough so the system is yours.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="container">
+      <div class="contact-box reveal">
+        <div>
+          <div class="label">Work with me</div>
+          <h2>Have a repetitive business process? I can turn it into an AI-powered system.</h2>
+          <p>Send me your workflow, tool stack, or current manual process. I’ll tell you what can be automated and what the first useful version should look like.</p>
+          <div class="hero-actions">
+            <a href="mailto:agharayyan@gmail.com" class="btn btn-primary">Book a free automation audit →</a>
+            <a href="https://wa.me/923218234852" target="_blank" class="btn btn-secondary">Message on WhatsApp</a>
+          </div>
+        </div>
+        <div class="contact-methods">
+          <a href="mailto:agharayyan@gmail.com" class="contact-method"><span>✉️</span><span><strong>Email</strong><small>agharayyan@gmail.com</small></span></a>
+          <a href="https://www.linkedin.com/in/rayyan45/" target="_blank" class="contact-method"><span>💼</span><span><strong>LinkedIn</strong><small>linkedin.com/in/rayyan45</small></span></a>
+          <a href="https://wa.me/923218234852" target="_blank" class="contact-method"><span>💬</span><span><strong>WhatsApp</strong><small>+92 321 8234852</small></span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<a href="https://wa.me/923218234852" target="_blank" class="wa-float" aria-label="Message on WhatsApp">💬</a>
+
+<footer>
+  <div class="container footer-inner">
+    <span>© 2026 Muhammad Rayyan Khan. All rights reserved.</span>
+    <span>AI Full Stack Automation Engineer · Pakistan · Remote</span>
+  </div>
+</footer>
+
+<script>
+  const topbar = document.getElementById('topbar');
+  window.addEventListener('scroll', () => topbar.classList.toggle('scrolled', window.scrollY > 20));
+
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  reveals.forEach((el) => observer.observe(el));
+</script>
+</body>
+</html>
