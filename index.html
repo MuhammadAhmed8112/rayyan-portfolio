@@ -1237,7 +1237,7 @@ function sendSuggestion(el) {
 function addMessage(role, content) {
   const div = document.createElement('div');
   div.className = 'msg' + (role==='user'?' user':'');
-  if(role==='assistant') div.innerHTML = `<div class="msg-avatar">🤖</div><div class="msg-bubble">${content.replace(/\n/g,'<br>')}</div>`;
+  if(role==='assistant') div.innerHTML = `<div class="msg-avatar">🤖</div><div class="msg-bubble">${content.replace(/\*\*(.*?)\*\*/g,'<strong>$1</strong>').replace(/\n/g,'<br>')}</div>`;
   else div.innerHTML = `<div class="msg-bubble">${content}</div>`;
   messagesEl.appendChild(div);
   messagesEl.scrollTop = messagesEl.scrollHeight;
