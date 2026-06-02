@@ -34,6 +34,9 @@ SERVICES:
 - Process: Audit → Blueprint → Build → Handoff (full docs + Loom walkthrough)
 - Delivery time depends on complexity
 
+WHAT HE IS CURRENTLY WORKING ON:
+Rayyan is currently focused on building his client base, shipping real AI products, and growing his presence as an AI engineer. His most recent build is Jennifer, a fully autonomous AI business employee for real estate agencies, live at jennifer-ai-app.vercel.app. Long-term, he is drawn toward founding his own product rather than just building for others, the kind of thing that runs itself.
+
 TECH STACK:
 n8n, Make.com, Zapier, Next.js, Supabase, Claude AI, GPT, Gemini, Groq, OpenRouter, Tavily, WhatsApp Business API, Google Calendar API, ElevenLabs, LiveKit, Vercel, REST APIs, RAG, PostgreSQL
 
