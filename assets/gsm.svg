@@ -1,0 +1,94 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" width="1600" height="900">
+<defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#070B14"/>
+      <stop offset="55%" stop-color="#0A1020"/>
+      <stop offset="100%" stop-color="#05070C"/>
+    </linearGradient>
+    <radialGradient id="bloom" cx="50%" cy="30%" r="60%">
+      <stop offset="0%" stop-color="#1E4FA8" stop-opacity=".28"/>
+      <stop offset="100%" stop-color="#1E4FA8" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="node" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#14305F"/>
+      <stop offset="100%" stop-color="#0C1A34"/>
+    </linearGradient>
+    <linearGradient id="nodeRed" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#7A1020"/>
+      <stop offset="100%" stop-color="#2A0A12"/>
+    </linearGradient>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3.2" orient="auto">
+      <path d="M0,0 L8,3.2 L0,6.4 Z" fill="#3B7DE0"/>
+    </marker>
+    <marker id="arrowRed" markerWidth="10" markerHeight="10" refX="8" refY="3.2" orient="auto">
+      <path d="M0,0 L8,3.2 L0,6.4 Z" fill="#E01E33"/>
+    </marker>
+  </defs>
+  <rect width="1600" height="900" fill="url(#bg)"/>
+  <rect width="1600" height="900" fill="url(#bloom)"/>
+
+  <text x="72" y="86" fill="#E8EEF9" font-size="38" font-weight="700" letter-spacing="-.5">GSM-to-AI Voice Bridge</text>
+  <text x="72" y="122" fill="#7E93B8" font-size="18">An AI agent answering a real SIM &mdash; not a cloud number</text>
+  <line x1="72" y1="150" x2="1528" y2="150" stroke="#1E4FA8" stroke-opacity=".3" stroke-width="1"/>
+
+  <!-- docker boundary -->
+  <rect x="600" y="215" width="700" height="360" rx="18" fill="#080E1C" stroke="#1E4FA8" stroke-opacity=".45" stroke-dasharray="8 8"/>
+  <text x="624" y="252" fill="#3B7DE0" font-size="13" letter-spacing=".22em">DOCKER &mdash; ONE-COMMAND DEPLOY</text>
+
+  <!-- caller -->
+  <g>
+    <rect x="72" y="330" width="220" height="130" rx="14" fill="url(#node)" stroke="#1E4FA8" stroke-opacity=".55"/>
+    <text x="182" y="390" fill="#E8EEF9" font-size="19" font-weight="600" text-anchor="middle">Inbound Caller</text>
+    <text x="182" y="418" fill="#7E93B8" font-size="14" text-anchor="middle">ordinary phone call</text>
+  </g>
+  <line x1="292" y1="395" x2="342" y2="395" stroke="#3B7DE0" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- gsm -->
+  <g>
+    <rect x="352" y="330" width="220" height="130" rx="14" fill="url(#node)" stroke="#1E4FA8" stroke-opacity=".55"/>
+    <text x="462" y="382" fill="#E8EEF9" font-size="19" font-weight="600" text-anchor="middle">GSM Gateway</text>
+    <text x="462" y="408" fill="#E8EEF9" font-size="19" font-weight="600" text-anchor="middle">+ SIM</text>
+    <text x="462" y="434" fill="#7E93B8" font-size="14" text-anchor="middle">physical hardware</text>
+  </g>
+  <line x1="572" y1="395" x2="642" y2="395" stroke="#3B7DE0" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- asterisk -->
+  <g>
+    <rect x="652" y="315" width="270" height="160" rx="14" fill="url(#node)" stroke="#1E4FA8" stroke-opacity=".65"/>
+    <text x="787" y="372" fill="#E8EEF9" font-size="20" font-weight="600" text-anchor="middle">Asterisk</text>
+    <text x="787" y="402" fill="#7E93B8" font-size="14" text-anchor="middle">terminates the GSM channel</text>
+    <text x="787" y="426" fill="#7E93B8" font-size="14" text-anchor="middle">dialplan owns the call</text>
+    <text x="787" y="450" fill="#7E93B8" font-size="14" text-anchor="middle">answer &middot; route &middot; hangup</text>
+  </g>
+  <line x1="922" y1="395" x2="972" y2="395" stroke="#3B7DE0" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- agi -->
+  <g>
+    <rect x="982" y="315" width="270" height="160" rx="14" fill="url(#node)" stroke="#1E4FA8" stroke-opacity=".65"/>
+    <text x="1117" y="372" fill="#E8EEF9" font-size="20" font-weight="600" text-anchor="middle">AGI Scripts</text>
+    <text x="1117" y="402" fill="#7E93B8" font-size="14" text-anchor="middle">sit inside the audio path</text>
+    <text x="1117" y="426" fill="#7E93B8" font-size="14" text-anchor="middle">stream audio both ways</text>
+    <text x="1117" y="450" fill="#7E93B8" font-size="14" text-anchor="middle">in real time</text>
+  </g>
+  <line x1="1252" y1="395" x2="1312" y2="395" stroke="#E01E33" stroke-width="2" marker-end="url(#arrowRed)"/>
+
+  <!-- retell -->
+  <g>
+    <rect x="1322" y="315" width="206" height="160" rx="14" fill="url(#nodeRed)" stroke="#E01E33" stroke-opacity=".75"/>
+    <text x="1425" y="374" fill="#FFE9EC" font-size="20" font-weight="700" text-anchor="middle">Retell AI</text>
+    <text x="1425" y="400" fill="#FFE9EC" font-size="20" font-weight="700" text-anchor="middle">Agent</text>
+    <text x="1425" y="432" fill="#F4A6B2" font-size="14" text-anchor="middle">conversation</text>
+    <text x="1425" y="454" fill="#F4A6B2" font-size="14" text-anchor="middle">+ business logic</text>
+  </g>
+
+  <!-- return path -->
+  <path d="M1425 475 L1425 640 L182 640 L182 460" fill="none" stroke="#E01E33" stroke-opacity=".55" stroke-width="2" stroke-dasharray="6 7" marker-end="url(#arrowRed)"/>
+  <text x="700" y="628" fill="#E0637A" font-size="15">agent speech returned down the same channel &mdash; the caller only ever hears a phone call</text>
+
+  <!-- why band -->
+  <rect x="72" y="700" width="1456" height="104" rx="14" fill="#0A1428" stroke="#1E4FA8" stroke-opacity=".35"/>
+  <text x="104" y="742" fill="#3B7DE0" font-size="13" letter-spacing=".22em">WHY IT IS HARDER THAN TWILIO</text>
+  <text x="104" y="776" fill="#E8EEF9" font-size="18">A cloud API hands you a SIP endpoint and a webhook. A physical GSM line gives you neither &mdash; you own the channel, the audio path and the routing.</text>
+
+  <text x="72" y="858" fill="#54688C" font-size="15">Asterisk &middot; AGI &middot; Retell AI &middot; Docker &middot; Python &middot; shipped with client handover docs</text>
+</svg>
